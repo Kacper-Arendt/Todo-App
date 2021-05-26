@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../redux/store";
+
 import {addTodo} from "../redux/todoSlice";
 
 export const AddTodo = () => {
@@ -12,7 +13,7 @@ export const AddTodo = () => {
         dispatch(addTodo(todoDescription));
         setTodoDescription('');
     }
-    console.log(todoDescription)
+
     return (
         <form>
             <div>

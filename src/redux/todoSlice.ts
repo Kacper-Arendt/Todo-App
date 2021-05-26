@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction, nanoid} from '@reduxjs/toolkit';
+
 import {Todo} from "../Model/Todo";
 
 const initialState = [] as Todo[];
