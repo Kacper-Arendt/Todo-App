@@ -4,11 +4,13 @@ import {TodoList} from "./components/TodoList";
 import {AddTodo} from "./components/AddTodo";
 import {createGlobalStyle} from "styled-components";
 import background from './assets/sheep-6262928_1920.jpg'
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
   }
   html {
     height: 100%;
