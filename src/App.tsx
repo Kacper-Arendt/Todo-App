@@ -2,8 +2,9 @@ import React from 'react';
 
 import {TodoList} from "./components/TodoList";
 import {AddTodo} from "./components/AddTodo";
-import {createGlobalStyle} from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 import Background from './assets/Background.jpg'
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -29,13 +30,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const Wrapper = styled.div `
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 function App() {
     return (
-        <React.Fragment>
+        <Wrapper>
             <GlobalStyle/>
             <AddTodo/>
             <TodoList/>
-        </React.Fragment>
+        </Wrapper>
     );
 }
 
