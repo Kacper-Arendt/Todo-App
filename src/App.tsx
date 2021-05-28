@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     right: 0;
     left: 0;
     background-image: url(${Background});
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

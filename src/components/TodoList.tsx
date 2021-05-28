@@ -2,6 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from "../redux/store";
 import styled from "styled-components";
+import {IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline, IoMdTrash} from "react-icons/io";
 
 import {removeTodo, setTodoStatus} from "../redux/todoSlice";
 import {Todo} from "../Model/Todo";
@@ -25,7 +26,8 @@ const Div = styled.div`
 const Li = styled.li`
   margin: 13px;
   list-style: none;
-  color: white;
+  color: ${props => props.color};
+  transition: all 0.5s;
 `
 
 const Section = styled.section`
@@ -33,13 +35,16 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   align-content: center;
+  h1{
+    margin-bottom: 8px;
+  }
 `
 
 const Button = styled.button`
 {
-  background-color: ${props => props.color ? props.color : 'green'};
+  background-color: ${props => props.color};
   display: inline-block;
-  padding: 0.3em 1.2em;
+  padding: 1px 12px;
   margin: 3px 10px;
   border: 0.16em solid rgba(255, 255, 255, 0);
   border-radius: 2em;
@@ -54,11 +59,9 @@ const Button = styled.button`
   :hover {
     border-color: rgba(255, 255, 255, 1);
   }
-
   @media all and (max-width: 30em) { {
     display: block;
     margin: 0.2em auto;
-
   }
 `
 
@@ -72,21 +75,26 @@ export const TodoList = () => {
                 {todoList.map((todo) => {
                     return (
                         <Div key={todo.id}>
-                            <Li>
+                            <Li color = {todo.completed  ?  "grey" : "white"}>
                                 {todo.content}
                             </Li>
                             <Section>
-                                <h1>|</h1>
                                 <Button
-                                    color = {todo.completed ? "green" : "grey"}
+                                    color={todo.completed ? "green" : "grey"}
                                     onClick={() => {
-                                        dispatch((setTodoStatus({completed: !todo.completed, id: todo.id})))}}
-                                >Done</Button>
+                                        dispatch((setTodoStatus({completed: !todo.completed, id: todo.id})))
+                                    }}
+                                >{todo.completed ?
+                                    <IoIosCheckmarkCircleOutline size={28}/>
+                                    : <IoIosCloseCircleOutline size={28}/>}
+                                </Button>
+                                <h1>|</h1>
+
                                 <Button
                                     color="red"
                                     onClick={() => {
                                         dispatch(removeTodo(todo.id))
-                                    }}>Remove
+                                    }}><IoMdTrash size={28} />
                                 </Button>
                             </Section>
                         </Div>
