@@ -4,24 +4,24 @@ import {AppDispatch} from "../redux/store";
 import styled from "styled-components";
 
 import {addTodo} from "../redux/todoSlice";
+// import {mediaQueries} from '../Model/MediaQueries'
 
 const Form = styled.form`
   display: flow;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  align-content: space-between;
-  margin: 70px 0;
-  font-size: 20px;
+  margin: 60px 50px 10px;
+  
+;
 `
 
 const Input = styled.input`
-  width: 500px;
+  width: 250px;
   padding: 10px;
   background: #778C8C;
   border: black solid 3px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 
   &:focus {
     background: #4B5947;
@@ -33,12 +33,12 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-  margin: 0 20px;
-  padding: 10px;
+  margin: 20px 80px 5px;
+  padding: 8px;
   background: #4B5947;
   border-radius: 7%;
   color: white;
-  font-size: 21px;
+  font-size: 15px;
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;

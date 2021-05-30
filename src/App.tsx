@@ -4,6 +4,7 @@ import {TodoList} from "./components/TodoList";
 import {AddTodo} from "./components/AddTodo";
 import styled, {createGlobalStyle} from "styled-components";
 import Background from './assets/Background.jpg'
+import {device} from "./Model/MediaQueries";
 
 
 const GlobalStyle = createGlobalStyle`

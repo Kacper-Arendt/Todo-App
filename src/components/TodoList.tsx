@@ -8,19 +8,19 @@ import {removeTodo, setTodoStatus} from "../redux/todoSlice";
 import {Todo} from "../Model/Todo";
 
 const Wrapper = styled.div`
-  margin: 50px 0;
-  font-size: 25px;
+  font-size: 15px;
 `
 
 const Div = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  align-content: center;
-  margin: 25px 0;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 20px 0;
   background-color: rgba(77, 77, 77, 0.8);
-  min-width: 650px;
+  min-width: 200px;
+  max-width: 280px;
 `
 
 const Li = styled.li`
@@ -33,19 +33,20 @@ const Li = styled.li`
 const Section = styled.section`
   display: flex;
   align-items: center;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-around;
+  align-content: space-between;
   h1{
-    margin-bottom: 8px;
+    margin: 5px 10px;
   }
 `
 
 const Button = styled.button`
 {
+  size: 35px;
   background-color: ${props => props.color};
   display: inline-block;
-  padding: 1px 12px;
-  margin: 3px 10px;
+  padding: 1px 8px;
+  margin: 3px 0;
   border: 0.16em solid rgba(255, 255, 255, 0);
   border-radius: 2em;
   text-decoration: none;
@@ -53,15 +54,10 @@ const Button = styled.button`
   color: #FFFFFF;
   letter-spacing: 1px;
   text-align: center;
-  font-weight: 700;
   transition: all 0.5s;
 }
   :hover {
     border-color: rgba(255, 255, 255, 1);
-  }
-  @media all and (max-width: 30em) { {
-    display: block;
-    margin: 0.2em auto;
   }
 `
 
