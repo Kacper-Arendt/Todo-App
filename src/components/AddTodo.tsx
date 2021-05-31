@@ -4,15 +4,15 @@ import {AppDispatch} from "../redux/store";
 import styled from "styled-components";
 
 import {addTodo} from "../redux/todoSlice";
+import {device} from "../Model/MediaQueries";
 // import {mediaQueries} from '../Model/MediaQueries'
 
 const Form = styled.form`
-  display: flow;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 60px 50px 10px;
-  
-;
 `
 
 const Input = styled.input`
@@ -26,14 +26,17 @@ const Input = styled.input`
   &:focus {
     background: #4B5947;
   }
-
+  
   ::placeholder {
     color: white;
   }
+  @media${device.mobileM}{
+  width: 300px;
+}
 `
 
 const Button = styled.button`
-  margin: 20px 80px 5px;
+  margin: 20px 0 5px;
   padding: 8px;
   background: #4B5947;
   border-radius: 7%;

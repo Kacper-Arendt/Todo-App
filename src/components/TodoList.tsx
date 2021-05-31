@@ -6,6 +6,7 @@ import {IoIosCheckmarkCircleOutline, IoIosCloseCircleOutline, IoMdTrash} from "r
 
 import {removeTodo, setTodoStatus} from "../redux/todoSlice";
 import {Todo} from "../Model/Todo";
+import {device} from "../Model/MediaQueries";
 
 const Wrapper = styled.div`
   font-size: 15px;
@@ -17,17 +18,20 @@ const Div = styled.div`
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 15px;
   background-color: rgba(77, 77, 77, 0.8);
   min-width: 200px;
-  max-width: 280px;
-`
-
+  
+  @media${device.mobileM} {
+  min-width: 340px;
+}
+  `
 const Li = styled.li`
   margin: 13px;
   list-style: none;
   color: ${props => props.color};
   transition: all 0.5s;
+  word-break: break-all;
 `
 
 const Section = styled.section`
@@ -42,7 +46,6 @@ const Section = styled.section`
 
 const Button = styled.button`
 {
-  size: 35px;
   background-color: ${props => props.color};
   display: inline-block;
   padding: 1px 8px;
