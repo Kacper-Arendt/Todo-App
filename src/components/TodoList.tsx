@@ -20,12 +20,36 @@ const Div = styled.div`
   text-align: center;
   margin: 20px 15px;
   background-color: rgba(77, 77, 77, 0.8);
-  min-width: 200px;
-  
-  @media${device.mobileM} {
+  min-width: 300px;
+
+@media${device.mobileM} {
   min-width: 340px;
+} @media${device.tablet} {
+  min-width: 600px;
+  font-size: 21px;
+} @media${device.laptop} {
+  min-width: 850px;
+  max-width: 90vw;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 23px;
+} @media${device.laptopL} {
+  min-width: 20vw;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px 0 30px 0 ;
+`
+
+const Ul = styled.ul`
+@media${device.laptopL} {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90vw;
 }
-  `
+
+`
 const Li = styled.li`
   margin: 13px;
   list-style: none;
@@ -39,7 +63,8 @@ const Section = styled.section`
   align-items: center;
   justify-content: space-around;
   align-content: space-between;
-  h1{
+
+  h1 {
     margin: 5px 10px;
   }
 `
@@ -59,9 +84,15 @@ const Button = styled.button`
   text-align: center;
   transition: all 0.5s;
 }
+
   :hover {
     border-color: rgba(255, 255, 255, 1);
   }
+
+@media${device.laptop} {
+  padding: 3px 12px;
+  margin: 3px;
+}
 `
 
 export const TodoList = () => {
@@ -70,11 +101,11 @@ export const TodoList = () => {
 
     return (
         <Wrapper>
-            <ul>
+            <Ul>
                 {todoList.map((todo) => {
                     return (
                         <Div key={todo.id}>
-                            <Li color = {todo.completed  ?  "grey" : "white"}>
+                            <Li color={todo.completed ? "grey" : "white"}>
                                 {todo.content}
                             </Li>
                             <Section>
@@ -84,8 +115,8 @@ export const TodoList = () => {
                                         dispatch((setTodoStatus({completed: !todo.completed, id: todo.id})))
                                     }}
                                 >{todo.completed ?
-                                    <IoIosCheckmarkCircleOutline size={28}/>
-                                    : <IoIosCloseCircleOutline size={28}/>}
+                                    <IoIosCheckmarkCircleOutline size={24}/>
+                                    : <IoIosCloseCircleOutline size={24}/>}
                                 </Button>
                                 <h1>|</h1>
 
@@ -93,13 +124,13 @@ export const TodoList = () => {
                                     color="red"
                                     onClick={() => {
                                         dispatch(removeTodo(todo.id))
-                                    }}><IoMdTrash size={28} />
+                                    }}><IoMdTrash size={24}/>
                                 </Button>
                             </Section>
                         </Div>
                     )
                 })}
-            </ul>
+            </Ul>
         </Wrapper>
     )
 }
