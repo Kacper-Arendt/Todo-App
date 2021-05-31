@@ -1,8 +1,80 @@
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../redux/store";
+import styled from "styled-components";
 
 import {addTodo} from "../redux/todoSlice";
+import {device} from "../Model/MediaQueries";
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 60px 50px 10px;
+  @media${device.laptop} {
+  flex-direction: row;
+}
+`
+
+const Input = styled.input`
+  width: 250px;
+  padding: 10px;
+  background: #778C8C;
+  border: black solid 3px;
+  color: white;
+  font-size: 15px;
+
+  &:focus {
+    background: #4B5947;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+
+@media${device.mobileM} {
+  width: 300px;
+} 
+@media${device.tablet} {
+  width: 600px;
+  padding: 15px;
+  font-size: 21px;
+}
+  @media${device.laptop}{
+  min-width: 720px;
+}
+`
+
+const Button = styled.button`
+  margin: 20px 0 5px;
+  padding: 8px;
+  background: #4B5947;
+  border-radius: 7%;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  :disabled {
+    opacity: 0.7;
+    color: #778C8C;
+  }
+
+  &:hover {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 1);
+    transition: all 0.3s ease 0s;
+  }
+@media${device.tablet} {
+  font-size: 21px;
+  padding: 12px;
+}
+  @media${device.laptop} {
+  margin: 0 30px;
+  padding: 15px;
+}
+`
 
 export const AddTodo = () => {
     const [todoDescription, setTodoDescription] = useState("");
@@ -15,24 +87,19 @@ export const AddTodo = () => {
     }
 
     return (
-        <form>
-            <div>
-                <label htmlFor="task">Set Task: </label>
-                <input
-                    type="text"
-                    id="task"
-                    name="task"
-                    value={todoDescription}
-                    onChange={(e) => setTodoDescription(e.target.value)}
-                />
-            </div>
-            <div>
-                <button
-                    disabled={!todoDescription}
-                    onClick={setTodoHandler}>
-                    SET
-                </button>
-            </div>
-        </form>
+        <Form>
+            <Input
+                type="text"
+                id="task"
+                name="task"
+                placeholder="Enter Your Task"
+                value={todoDescription}
+                onChange={(e) => setTodoDescription(e.target.value)}
+            />
+            <Button
+                disabled={!todoDescription}
+                onClick={setTodoHandler}
+            >Confirm</Button>
+        </Form>
     )
 }
