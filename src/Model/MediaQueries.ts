@@ -6,7 +6,7 @@ const size= {
     laptopL: '1440px',
 }
 
-export const device = {
+export const device: typeof size = {
     mobileS: `(min-width: ${size.mobileS})`,
     mobileM: `(min-width: ${size.mobileM})`,
     tablet: `(min-width: ${size.tablet})`,

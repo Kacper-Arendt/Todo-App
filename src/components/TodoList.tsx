@@ -95,7 +95,7 @@ const Button = styled.button`
 }
 `
 
-export const TodoList = () => {
+export const TodoList = ():JSX.Element => {
     const todoList: Todo [] = useSelector((state: RootState) => state);
     const dispatch = useDispatch<AppDispatch>();
 
@@ -132,5 +132,5 @@ export const TodoList = () => {
                 })}
             </Ul>
         </Wrapper>
-    )
-}
+    );
+};

@@ -76,7 +76,7 @@ const Button = styled.button`
 }
 `
 
-export const AddTodo = () => {
+export const AddTodo = (): JSX.Element => {
     const [todoDescription, setTodoDescription] = useState("");
     const dispatch = useDispatch<AppDispatch>();
 
@@ -102,4 +102,4 @@ export const AddTodo = () => {
             >Confirm</Button>
         </Form>
     )
-}
+};

@@ -37,7 +37,7 @@ const Wrapper = styled.div `
   align-items: center;
 `
 
-function App() {
+function App():JSX.Element {
     return (
         <Wrapper>
             <GlobalStyle/>
